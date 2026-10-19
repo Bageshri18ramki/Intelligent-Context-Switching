@@ -1,0 +1,11 @@
+Operating systems manage multiple processes that compete for CPU time. Since a processor can execute only a limited number of processes at a time, the operating system uses a CPU scheduler to decide which process should execute next.
+When the CPU changes from one process to another, the operating system saves the execution state of the current process and restores the state of the next process. This operation is called context switching.
+Context switching is essential for multitasking, but frequent switching can introduce overhead. When the scheduler repeatedly changes processes, additional time is spent managing execution transitions rather than performing useful application work.
+The Round Robin scheduling algorithm is widely used to demonstrate time-sharing. It assigns each ready process a fixed time quantum. If a process does not finish within its allocated quantum, it returns to the ready queue.
+Although Round Robin promotes fair CPU allocation, a short time quantum may increase the number of process transitions.
+This project develops a C-based simulation that compares conventional Round Robin scheduling with an intelligent context-switching approach. The proposed approach evaluates the remaining execution time of the current process and the priorities of waiting processes before deciding whether to continue execution.
+The objective is to investigate whether this decision-making mechanism can reduce unnecessary process transitions while maintaining acceptable waiting, turnaround, and response times.
+Conventional Round Robin scheduling switches to another ready process when the current process exhausts its time quantum and has remaining execution time.
+Frequent transitions can increase scheduling activity, especially when multiple processes repeatedly compete for CPU time. However, simply reducing context switches can negatively affect fairness and responsiveness.
+Therefore, the problem addressed by this project is:
+To develop a CPU scheduling simulation that compares conventional Round Robin scheduling with an intelligent scheduling mechanism designed to reduce unnecessary context switches by considering the current process's remaining execution time and the priorities of waiting processes.
